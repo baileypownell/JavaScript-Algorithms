@@ -1,0 +1,38 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given an array of integers, find the maximum difference between any two adjacent elements.</h2>
+
+<script>
+
+// Objective: Given an array of integers, find the maximum difference between any two adjacent elements
+
+function findMaxDifference(array) {
+  let maxDifference = 0;
+  for (let i = 0; i < array.length; i ++) {
+    if (array[i] >= 0 && array[i+1] >= 0) {
+      let difference = Math.abs(array[i] - array[i+1]);
+      if (difference > maxDifference) {
+        maxDifference = difference;
+      }
+    } else if (array[i] < 0 && array[i+1] < 0) {
+      let difference = Math.abs(array[i] - array[i+1]);
+      if (difference > maxDifference) {
+        maxDifference = difference;
+      }
+    }
+    else if (array[i] < 0 || array[i+1] < 0) {
+      let difference = Math.abs(array[i] - array[i+1]);
+      if (difference > maxDifference) {
+        maxDifference = difference;
+      }
+    }
+  }
+  console.log(maxDifference);
+}
+
+findMaxDifference([-13, 64, 1, 10, -5, 26, 55]);
+
+</script>
+
+</html>

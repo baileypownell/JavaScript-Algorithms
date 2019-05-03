@@ -1,0 +1,29 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Determine if the bishop can capture the pawn in one fell swoop. The bishop and pawn each have coordinates.</h2>
+
+<script>
+
+// Objective: Determine if the bishop can capture the pawn in one fell swoop
+// I do this by comparing the difference between the coordinates, because as long as the difference between the letters is equal to the difference between the numbers, then that means the pawn is diagonally positioned from the bishop, and since the bishop can move diagonally, that means the pawn is in the line of fire
+
+function canCapture(array) {
+  let letters = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  let numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+  // check to see that both number and letter coordinates are TWO less (positive or negative, either works as long as both are either positive or negative)
+  // use Math.abs just in case values are negative
+  const differenceBetweenLetters =  Math.abs(letters.indexOf(array[0][0]) - letters.indexOf(array[1][0]));
+  const differenceBetweenNumbers = Math.abs(array[0][1] - array[1][1]);
+  if (differenceBetweenLetters === differenceBetweenNumbers) {
+      console.log("The bishop can capture the pawn in one move.");
+    } else {
+      console.log("The bishop cannot capture the pawn in one move.");
+    }
+  }
+
+canCapture(["c3", "a1"]);
+
+</script>
+
+</html>

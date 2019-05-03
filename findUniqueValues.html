@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function that takes in two arrays and logs the unique values, if any exist.
+
+const array1 = ["Maserati", 19, "ABBA", 23, 32, "Mazda"];
+const array2 = ["poker", 23, "ABBA", "iPhone", "Gilfoyle"];
+
+function findUniqueValues(array1, array2) {
+  let uniqueValues = [];
+  array1.forEach(function(element) {
+    if (array2.includes(element)) {
+      uniqueValues.push(element);
+    }
+  });
+  console.log(uniqueValues);
+}
+
+findUniqueValues(array1, array2);
+
+</script>
+</html>

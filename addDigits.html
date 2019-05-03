@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function that takes in a number and adds the sum of its digits.
+
+
+function addDigits(num) {
+  let sum = 0;
+  // turn the number into a string so you can split each number up
+  num = num.toString().split('');
+  // for each "number", turn it back into a number so you can add it to sum
+  num.forEach(function(element) {
+    sum += Number(element);
+  });
+  console.log(sum);
+}
+
+addDigits(253);
+
+</script>
+</html>

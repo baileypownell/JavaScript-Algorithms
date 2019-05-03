@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function to verify if a unit of military time is in fact a valid time
+
+function isValidTime(string) {
+  string = string.split(':');
+  if (string[0] < 24) {
+    if (string[1] < 60) {
+      console.log("valid military time");
+    } else {
+      console.log("invalid military time");
+    }
+  } else {
+    console.log("invalid time, bro");
+  }
+}
+
+isValidTime('10:00');
+
+</script>
+</html>

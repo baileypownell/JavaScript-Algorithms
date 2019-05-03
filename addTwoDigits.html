@@ -1,0 +1,24 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that takes in a two-digit integer and returns the sum of its digits</h2>
+
+<script>
+
+// Objective: Write a function that takes in a two-digit integer and returns the sum of its digits
+
+function divideAndAdd(num) {
+  // convert to a string then conver to an array so the digits are split
+  let sum = 0;
+  num = num.toString().split('');
+  num.forEach((digit) => {
+    sum += Number(digit);
+  });
+  console.log(sum);
+}
+
+divideAndAdd(65);
+
+</script>
+
+</html>

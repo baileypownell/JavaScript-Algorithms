@@ -1,0 +1,29 @@
+<DOCTYPE! html>
+<html>
+
+<h2>GoDaddy makes a lot of different top-level domains available to its customers. A top-level domain is one that goes directly after the last dot. in the domain name, for example.com in example.com. To help the users choose from available gomains, GoDaddy is introducing a new feature that shows the type of the chosen top-level domain. You have to implement this feature. To begin with, you want to write a function that labels the domains as "commercial", "organization", "network", or "information" for .com, .org, .net, or .info respectively. For the given list of domains return the list of their labels.</h2>
+
+<script>
+
+// Objective: GoDaddy makes a lot of different top-level domains available to its customers. A top-level domain is one that goes directly after the last dot. in the domain name, for example.com in example.com. To help the users choose from available gomains, GoDaddy is introducing a new feature that shows the type of the chosen top-level domain. You have to implement this feature. To begin with, you want to write a function that labels the domains as "commercial", "organization", "network", or "information" for .com, .org, .net, or .info respectively. For the given list of domains return the list of their labels.
+
+function domainType(array) {
+  const domains = array;
+  domains.forEach((domain) => {
+    if (domain.endsWith(".org")) {
+      console.log("organization");
+    } else if (domain.endsWith(".com")) {
+      console.log("commercial");
+    } else if (domain.endsWith("net")) {
+      console.log("network");
+    } else {
+      console.log("information");
+    }
+  });
+}
+
+domainType(["en.wiki.org", "codefights.com", "happy.net", "code.info"]);
+
+</script>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Return the length of longest word in a given string
+
+function returnLongestLength(string) {
+  let longestWordLength = 0;
+  // split words of string into an array
+  let array = string.split(' ');
+  // obtain length of each word anc compare
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].length > longestWordLength) {
+      longestWordLength = array[i].length;
+    }
+  }
+  console.log(longestWordLength);
+}
+
+returnLongestLength("The end of government is the good of mankind");
+
+// using the sort method
+
+function returnLongestLength2(string) {
+  let array = string.split(' ').sort((word1, word2) => {
+    return word2.length - word1.length;
+  });
+  console.log(array[0].length);
+}
+
+returnLongestLength2("The end of government is the good of mankind");
+
+</script>
+</html>

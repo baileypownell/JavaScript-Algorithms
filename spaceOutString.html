@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function that takes in a string that has no spaces and new words are denoted with capital letters and returns a lowercase spaced out string.
+
+let sentence = "ManLikeTheGenerousVineSupportedLivesTheStrengthHeGainsIsFromTheEmbraceHeGives";
+
+function spaceOut(string) {
+  string = string.split(/(?=[A-Z])/).join(" ").toLowerCase();
+  console.log(string);
+}
+
+spaceOut(sentence);
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function to find the longest word in a string - not including punctuation
+
+function findLongestWord(string) {
+  longestWord = '';
+  string = string.replace(/[^a-zA-Z ]/g, '').split(' ');
+  for (let i = 0; i < string.length; i++) {
+    if (string[i].length > longestWord.length) {
+      longestWord = string[i];
+    }
+  }
+  console.log(longestWord);
+}
+
+findLongestWord('Those who expect to reap the blessings of freedom must, like men, undergo the fatigue of supporting it.');
+
+// using .forEach() method...
+
+function findLongestWord2(string) {
+  longestWord = '';
+  string = string.replace(/[^a-zA-Z ]/g, '').split(' ');
+  string.forEach((e) => {
+    if (e.length > longestWord.length) {
+      longestWord = e;
+    }
+  });
+  console.log(longestWord);
+}
+
+findLongestWord2('Those who expect to reap the blessings of freedom must, like men, undergo the fatigue of supporting it.');
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that takes a pre-assorted array of integers and finds the median value</h2>
+
+<script>
+
+// Objective: Write a function that takes a pre-assorted array of integers and finds the median value; if the number of elements is even, return the element left of center
+
+function findMedianValue(array) {
+  let median = 0;
+  for (let i = 0; i < array.length; i++) {
+    if ( array.length%2 === 0 ) {
+      median = array[array.length/2 - 1];
+    } else {
+      median = array[(array.length-1)/2];
+    }
+  }
+  console.log(median);
+  return median;
+}
+
+findMedianValue([7, 12, 13, 14, 20, 21, 25, 28, 40]); // odd # of elements
+findMedianValue([7, 12, 13, 14, 21, 25, 28, 40]); // even # of elements
+
+</script>
+
+</html>

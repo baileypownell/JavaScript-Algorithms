@@ -1,0 +1,23 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that factorializes by recursion.</h2>
+
+<script>
+
+// Objective: Write a function that factorializes by recursion
+
+let factorialize = function fact(num) {
+  if (num === 1) {
+    return 1;
+  }
+
+  return num * fact(num - 1);
+
+}
+let ten = factorialize(10)
+console.log(ten);
+
+</script>
+
+</html>

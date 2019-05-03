@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function that takes an array of numbers and returns the value that was first duplicated (once a duplication is found, the function stops running)
+
+const numbers = [2, 13, 13, 7, 6, 2];
+
+function findFirstDuplicate(array) {
+  array.sort((a, b) => {
+    return a -b;
+  });
+  for ( let i = 0; i < array.length; i++) {
+    if ( array[i] === array[i-1] ) {
+      console.log(array[i]);
+      break;
+    }
+  }
+}
+
+findFirstDuplicate(numbers);
+
+// another approach...
+
+let duplicateObject = {};
+
+function findFirstDuplicate2(array) {
+  for (let item of array) {
+    if (duplicateObject.hasOwnProperty(item)) {
+      console.log(item);
+      break;
+    }
+    duplicateObject[item] = item;
+  }
+}
+
+findFirstDuplicate2(numbers);
+
+</script>
+</html>

@@ -1,0 +1,28 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function divides an array of integers in two, putting those in even places in one group and odd places in another. So an array of 6 integers would have numbers 1, 3, 5 in one group and the numbers that were 2 and 4 in a different one.</h2>
+
+<script>
+
+// Objective: Write a function divides an array of integers in two, putting those in even places in one group and odd places in another. So an array of 6 integers would have numbers 1, 3, 5 in one group and the numbers that were 2 and 4 in a different one.
+
+function regroup(array) {
+  let group1 = [];
+  let group2= [];
+  for (let i = 0; i < array.length; i++) {
+   if (i%2 === 0) {
+      group1.push(array[i]);
+    } else {
+      group2.push(array[i]);
+    }
+  }
+  console.log(group1);
+  console.log(group2);
+}
+
+regroup([100, 110, 115, 160, 140, 135, 155, 170, 110, 190, 200]);
+
+</script>
+
+</html>

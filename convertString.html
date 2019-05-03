@@ -1,0 +1,35 @@
+<DOCTYPE! html>
+<html>
+
+<h2>You are given the string s. Your friend just asked you if it's possible to change the string from s to a string t by removing some characters from it. You cannot rearrange the order of the letters. That is, you cannot get "abcd" from "addbyca" because that woulld require shifting order of the d. </h2>
+
+<script>
+
+// Objective: You are given the string s. Your friend just asked you if it's possible to change the string from s to a string t by removing some characters from it. You cannot rearrange the order of the letters. That is, you cannot get "abcd" from "addbyca" because that woulld require shifting order of the d.
+
+function convertToString(string1, string2) {
+
+  let word = '';
+  let s2Index = 0;
+  const s1Chars = string1.split('');
+
+  for (let i = 0; i < string1.length; i++) {
+    // compare each letter of string1 to 0 index value of second parameter; however, everytime there's a match, the index value of second parameter is incremented
+    if (string1[i] === string2[s2Index]) {
+      word = word.concat(string1[i]);
+      s2Index++;
+      // then compare the constructed word to the second parameter
+      if (word === string2) {
+        console.log(true);
+        return true;
+      }
+    }
+  }
+console.log(false);
+}
+
+convertToString('ceoydefthf5iyg5h5yts', 'fights');
+
+</script>
+
+</html>

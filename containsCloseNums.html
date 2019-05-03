@@ -1,0 +1,28 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given an array of integers nums and an integer k, determine whether there are twodistinct indices i and jin the array where nums[i] = nums[j] and the absolute difference between i and js is less than or equal to k.</h2>
+
+<script>
+
+// Objective: Given an array of integers nums and an integer k, determine whether there are twodistinct indices i and jin the array where nums[i] = nums[j] and the absolute difference between i and js is less than or equal to k.
+
+function containsCloseNums(array, num) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (i !== j) {
+        if (array[i] === array[j]) {
+          if (Math.abs(i-j) <= num) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+}
+
+containsCloseNums([0,1,2,3,5,2], 3);
+
+</script>
+
+</html>

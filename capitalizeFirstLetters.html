@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Return the length of longest word in a given string
+
+function capitalizeFirstLetters(string) {
+  // split words of string into an array
+  let array = string.split(' ');
+  array = array.map((word) => {
+    const firstLetter = word.charAt(0).toUpperCase(); // capitalizing the first letters of each word and storing in a variable
+    //
+    word = firstLetter.concat(word.slice(1, word.length));
+    return word;
+  });
+  array = array.join(' ');
+  console.log(array);
+
+}
+
+capitalizeFirstLetters("The end of government is the good of mankind");
+
+</script>
+</html>

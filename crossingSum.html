@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a rectangular matrix and integers a and b, consider the union of the ath row and bth (both 0-based) column of the matrix (i.e. all cells that belong either to the ath row or to the bth column, or to both.) Return sum of all elements of that union.
+
+function crossingSum(matrix, a, b) {
+  let columnToAdd = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    if (i === a) {
+      // this is necessary to make sure we don't add the same number (the number that intersects the row and column) twice
+      columnToAdd += 0;
+    } else {
+      columnToAdd += matrix[i][b];
+    }
+  }
+  // add all numbers in the row array
+  const rowToAdd = matrix[a].reduce((a,b) => a + b);
+  // add the row and the column together
+  const UNION = rowToAdd + columnToAdd;
+  console.log(UNION);
+}
+
+// crossingSum([[1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3]], 1, 3);
+crossingSum([[1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4, 4], [7, 7, 7, 7]], 2, 3);
+
+</script>
+</html>

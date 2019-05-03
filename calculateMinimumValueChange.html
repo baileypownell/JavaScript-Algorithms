@@ -1,0 +1,35 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given an array of integers, you are allowed to change each element by increases/decreases of one such that the array's integers are always increasing by one value from one element to the next. Write a function that finds the minimal number of value shifts/upticks required to obtain a strictly increasing sequence from the input (so 4,5,6,7 rather than something like 4,6,8,10, which while increasing, is increasing each time by more than ONE value shift.</h2>
+
+<script>
+
+// Objective: Given an array of integers, you are allowed to change each element by increases/decreases of one such that the array's integers are always increasing by one value from one element to the next. Write a function that finds the minimal number of value shifts/upticks required to obtain a strictly increasing sequence from the input (so 4,5,6,7 rather than something like 4,6,8,10, which while increasing, is increasing each time by more than ONE value shift.
+
+function changeByOne(array) {
+  let changes = 0;
+  for (let i = 0; i < array.length; i++) {
+    let difference = array[i] - array[i-1];
+    if (difference > 1) {
+      array[i] = --array[i];
+      i--;
+      changes++;
+    }
+    if (difference < 1) {
+      array[i] = ++array[i];
+      i--;
+      changes++;
+    }
+  }
+  console.log(array);
+  console.log(changes);
+}
+
+changeByOne([14, 15, 15, 15, 13, 16]); // expected output: 14, 15, 16, 17, 18, 19
+
+// 14, 15, 15, 15, 13, 16
+
+</script>
+
+</html>

@@ -1,0 +1,68 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Find the longest set of consecutive integers in an array</h2>
+
+<script>
+
+// Objective: Find the longest set of consecutive integers in an array
+
+function findLongestSet(array) {
+  let minimalLengthJump = 0;
+  // sort the array
+  array.sort((a,b) => {
+    return a-b;
+  });
+  // this array will hold ALL series of consecutive integers
+  let consecutiveObstacles = [];
+  for (let i = 0; i < array.length; i++) {
+    let difference = array[i+1]-array[i];
+    if (difference === 1) {
+      if (consecutiveObstacles.includes(array[i]) === false) {
+        consecutiveObstacles.push(array[i]);
+      }
+      if (consecutiveObstacles.includes(array[i+1]) === false) {
+        consecutiveObstacles.push(array[i+1])
+      }
+    }
+  }
+
+  // now it's time to take into account if all consecutive integers are connected
+
+  // first make an array to hold the current longest set of consecutive integers
+  let longestSet = [];
+  // then initialize an array to hold any and all split points (index values where a new array of consectuve numbers STARTS that is separate from other sets of consecutive numbers)
+  let splitPoints = [];
+  for (let i = 0; i < consecutiveObstacles.length; i++) {
+    // now iterate through the array of all consecutive numbers and see if there's any breaks (1,2,3 followed by 5,6,7 would have a break)
+    let difference = consecutiveObstacles[i+1]-consecutiveObstacles[i];
+    if (difference > 1) {
+      // find index of consecutiveObstacles[i] to split array there
+      function findSplitPoint(element) {
+        return element === consecutiveObstacles[i];
+      }
+      let index = array.findIndex(findSplitPoint);
+      splitPoints.push(index);
+    }
+  }
+  // add zero to array of split points since we'll always need to split the first array, which whill always start at zero index
+  splitPoints.unshift(0);
+  console.log(splitPoints);
+  // divde consecutiveObstacles using all the split points
+  for (let i = 0; i < splitPoints.length; i++) {
+    let index= splitPoints[i];
+    let stopPoint = splitPoints[i+1];
+    let array = consecutiveObstacles.slice(index,stopPoint);
+    console.log(array);
+    if ( array.length > longestSet.length ) {
+      longestSet=array;
+    }
+}
+  console.log(longestSet.length);
+}
+
+findLongestSet([5, 3, 6, 7, 9, 10, 11, 12, 15, 16, 17, 18, 19, 20, 22, 25, 24]);
+
+</script>
+
+</html>

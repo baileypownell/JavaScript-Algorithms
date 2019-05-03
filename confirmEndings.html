@@ -1,0 +1,57 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Check if a string ends with a given target string.</h2>
+
+<script>
+
+// Objective: Write a function that checks if a string ends with a given target string.
+
+// FUNCTION 1 - JUST LOGIC
+
+function checkEnd(string, substring) {
+  // reverse the strings since we don't know at what point the substring may begin
+  string = string.split('').reverse();
+  substring = substring.split('').reverse();
+  let length = substring.length;
+  let comparison = [];
+  for (let i = 0; i < length; i++) {
+    comparison.push(substring[i]);
+  }
+  if (comparison.join('') === substring.join('')) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
+// FUNCTION 2 - with .substring() method
+
+function checkEnd2(string, substring) {
+  string = string.split('').reverse().join('');
+  substring = substring.split('').reverse().join('');
+  let length = substring.length;
+  if (string.substring(0,length) === substring) {
+    console.log(true)
+  } else {
+    console.log(false);
+  }
+}
+
+// FUNCTION 3 - with .endWith() method
+
+function checkEnd3(string, substring) {
+  if (string.endsWith(substring)) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
+checkEnd("Abstraction", "action");
+checkEnd2("Abstraction", "action");
+checkEnd3("Abstraction", "action");
+
+</script>
+
+</html>

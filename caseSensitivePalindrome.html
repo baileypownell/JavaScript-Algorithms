@@ -1,0 +1,24 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Check to see if a string can become a palindrome through a case change of some, or possibly none, letters.</h2>
+
+<script>
+
+// Objective: Check to see if a string can become a palindrome through a case change of some, or possibly none, letters.
+
+function isCaseInsensitivePalindrome(string) {
+  string = string.toLowerCase().split('');
+  let compareString = string.reverse();
+  if (string === compareString) {
+    console.log("this is a case-insensitive palindrome");
+  } else {
+    console.log("this is not a case-insensitive palindrome");
+  }
+}
+
+isCaseInsensitivePalindrome("aBBa"); // best band ever
+
+</script>
+
+</html>

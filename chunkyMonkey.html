@@ -1,0 +1,25 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two dimensional array. If there are leftovers from splitting, but them in their own array. It is a given that the first array's length exceeds the length of size (second argument).</h2>
+
+<script>
+
+// Objective: Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two dimensional array. If there are leftovers from splitting, but them in their own array. It is a given that the first array's length exceeds the length of size (second argument).
+
+function arraySplit(array, num) {
+  let newArray = [];
+  let i = 0;
+  //console.log(array.length);
+  while (i < array.length) {
+    //console.log('hi');
+    newArray.push(array.slice(i, i+=num));
+  }
+  console.log(newArray);
+}
+
+arraySplit([10, 12, 13, 16, 18, 18, 22, 23, 25, 29], 4);
+
+</script>
+
+</html>

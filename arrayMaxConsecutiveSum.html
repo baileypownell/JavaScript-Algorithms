@@ -1,0 +1,25 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given an array of integers, find the maximum sum of an two consecutive integers and return that sum.</h2>
+
+<script>
+
+// Objective: Given an array of integers, find the maximum sum of an two consecutive integers and return that sum.
+
+function findMaxSum(array) {
+  let maxSum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum = array[i] + array[i+1];
+    if (sum > maxSum) {
+      maxSum = sum;
+    }
+  }
+  console.log(maxSum);
+}
+
+findMaxSum([12, 16, 13, 29, 22, 10, 18, 26, 15, 19]);
+
+</script>
+
+</html>

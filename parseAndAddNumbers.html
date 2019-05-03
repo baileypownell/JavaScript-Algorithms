@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function that takes a string and parses out all numbers and adds them together
+
+let string = "America declared independence in 1776 and won the war against Britain in 1783.";
+let sum = 0;
+
+function parseNums(string) {
+  // turn into array
+  string = string.split(' ');
+  // iterate through to find numbers
+  for ( let i = 0; i < string.length; i++ ) {
+    if (isNaN(string[i]) === false) {
+      string[i] = Number(string[i]);
+      sum += string[i];
+    }
+  }
+  console.log(sum);
+}
+
+parseNums(string);
+
+
+</script>
+</html>

@@ -1,0 +1,29 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that takes in an array of strings, finds the longest one, and consoles all strings of the same length, if any.</h2>
+
+<script>
+
+// Objective: Write a function that takes in an array of strings, finds the longest one, and consoles all strings of the same length, if any
+
+let array = ["Belgium", "Turkey", "Poland", "Germany", "Italy", "Ireland", "Austria", "Sweden", "Spain", "Greece"];
+
+function largestProduct(num) {
+  let longestLength = 0;
+  // iterate through the words to find the one with the longest length, and update longestLength to reflect that
+  for (let word of array) {
+    if (word.length > longestLength) {
+      longestLength = word.length;
+    }
+  }
+  // create a new array with all the longest words
+  const longestWords = array.filter(array => array.length > (longestLength - 1));
+  console.log(longestWords);
+}
+
+largestProduct(array);
+
+</script>
+
+</html>

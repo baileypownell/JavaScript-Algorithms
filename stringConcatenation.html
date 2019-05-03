@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// string concatenation - 2 ways
+
+function stringConcat(lastName, firstName) {
+  console.log("Hi, my name is ".concat(firstName, ' ', lastName, "."));
+}
+stringConcat("Pownell", "Bailey");
+
+
+// using template literals:
+
+function stringConcat2(lastName, firstName) {
+  const introduction = `Hi, my name is ${firstName} ${lastName}.`;
+  console.log(introduction);
+}
+
+stringConcat2("Tesla", "Nikola");
+
+</script>
+</html>

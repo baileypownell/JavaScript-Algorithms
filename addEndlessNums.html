@@ -1,0 +1,23 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that returns the sum of all parameters regardless of number of parameters </h2>
+
+<script>
+
+// Objective: Write a function that returns the sum of all parameters regardless of number of parameters
+
+function addAllParams(...args) {
+  let sum = 0;
+  for (let arg of args) {
+    sum += arg;
+  }
+  console.log(sum);
+  return sum;
+}
+
+addAllParams(7, 12, 13, 14, 20, 21, 25, 28, 40);
+
+</script>
+
+</html>

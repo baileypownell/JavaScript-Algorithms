@@ -1,0 +1,41 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that illustrates what recursion is (open the console).</h2>
+
+<script>
+
+// Objective: Write two nonsense functions that illustrates what recursion is
+
+
+// Function One
+let recursionHolder = [];
+
+function repeatString(string) {
+  recursionHolder.push(string);
+  if (recursionHolder.length < 10) {
+    repeatString(string);
+  }
+};
+
+repeatString("We want recursions!");
+
+console.log(recursionHolder);
+
+
+// Function Two
+
+const countDown = (num) => {
+  if (num > 0) {
+    console.log(num);
+    countDown(num - 1);
+  } else {
+    console.log("Done");
+  }
+}
+
+countDown(12);
+
+</script>
+
+</html>

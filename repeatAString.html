@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Repeat a string - 5 ways!
+
+function repeatAString(string, num) {
+  let message = '';
+  let counter = 0;
+  while (counter < num) {
+    message += string;
+    counter +=1;
+  }
+  console.log(message);
+}
+
+repeatAString(`America is a criminally underrated band. `, 17);
+
+// using a do... while loop
+
+function repeatAString2(string, num) {
+  let message = '';
+  let counter = 0;
+  do {
+    message += string;
+    counter +=1;
+  } while ( counter < num);
+  console.log(message);
+}
+
+repeatAString2(`America is a criminally underrated band. `, 17);
+
+// using a for loop
+
+function repeatAString3(string, num) {
+  let message = '';
+  for (let i = 0; i < num; i++) {
+    message += string;
+  }
+  console.log(message);
+}
+
+repeatAString3(`America is a criminally underrated band. `, 17);
+
+// an even shorter while loop version
+
+function repeatAString4(string, num) {
+  let message = '';
+  while ( num > 0) {
+    message = message.concat(string);
+    num--;
+  }
+  console.log(message);
+}
+
+repeatAString4(`America is a criminally underrated band. `, 17);
+
+// and an ES6 take...
+
+function repeatAString5(string, num) {
+  console.log(string.repeat(num));
+}
+
+repeatAString5(`America is a criminally underrated band. `, 17);
+
+
+</script>
+</html>

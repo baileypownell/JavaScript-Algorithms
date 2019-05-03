@@ -1,0 +1,33 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that takes in an array of numbers and determines whther is is possible to obtain a strictly increasing sequence by removing NO MORE than one element from the array. So for example, [2, 4, 3] would be an almost increasing sequence because you only have to remove one number, the three, for it to be increasing in value with each element.</h2>
+
+<script>
+
+// Objective: Write a function that takes in an array of numbers and determines whther is is possible to obtain a strictly increasing sequence by removing NO MORE than one element from the array. So for example, [2, 4, 3] would be an almost increasing sequence because you only have to remove one number, the three, for it to be increasing in value with each element
+
+let array = [12, 17, 15];
+
+function almostIncreasingSequence(array) {
+  // assign variables to count value differences between adjacent elements, and to count how many times a differences in values is less than 0 (our criteria will allow for only one difference less than zero, because the number giving us a negative difference can be removed to make the array increasing. However, if there are two negative differences, we'd have to remove two elements, and that is not allowed)
+  let difference = 0;
+  let numberOfDifferences = 0;
+  for (let i = 0; i < array.length; i++) {
+    difference = array[i + 1] - array[i];
+    if (difference < 0) {
+      numberOfDifferences++;
+    }
+  }
+  if (numberOfDifferences > 1) {
+    console.log("This is NOT an almost increasing sequence");
+  } else {
+    console.log("This IS an almost increasing sequence");
+  }
+}
+
+almostIncreasingSequence(array);
+
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that, given a string, replaces each character by the next one in the English alphabet</h2>
+
+<script>
+
+// Objective: Write a function that, given a string, replaces each character by the next one in the English alphabet
+
+const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+function shift(string) {
+  string = string.toLowerCase().split('');
+  let currentIndex;
+  let desiredIndex;
+  let newWord = [];
+  for (item of string) {
+    let currentIndex = alphabet.indexOf(item);
+    desiredIndex = currentIndex+1;
+    let letter = alphabet[desiredIndex];
+    newWord.push(letter);
+  };
+  newWord = newWord.join('');
+  console.log(newWord);
+}
+
+shift("donut");
+
+</script>
+
+</html>

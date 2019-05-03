@@ -1,0 +1,56 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given a string, find the number of different characters in it.</h2>
+
+<script>
+
+// Objective: Given a string, find the number of different characters in it.
+
+function differentChars(string) {
+  string = string.toLowerCase().split('');
+  let comparisonArray = [];
+  string.forEach((char) => {
+    if (!comparisonArray.includes(char) ) {
+      comparisonArray.push(char);
+    }
+  });
+  console.log(comparisonArray.length);
+}
+
+differentChars('Maximilian');
+
+// Object approach:
+
+function differentLetters(string) {
+  const uniqueLetters = {};
+  const inputLetters = string.toLowerCase().split('');
+
+  inputLetters.forEach((letter) => {
+    uniqueLetters[letter] = 1;
+    // will overwrite any pre-existing key that's the same, like two m's
+  });
+  console.log(Object.keys(uniqueLetters).length);
+}
+
+differentLetters('Maximilian');
+
+// Set approach:
+// A set is an object that can only have unique values
+
+function differentLettersSet(string) {
+  const uniqueLetters = new Set();
+  const inputLetters = string.toLowerCase().split('');
+
+  inputLetters.forEach((letter) => {
+    uniqueLetters.add(letter);
+    // will overwrite any pre-existing key that's the same, like two m's
+  });
+  console.log(uniqueLetters.size);
+}
+
+differentLettersSet('Maximilian');
+
+</script>
+
+</html>

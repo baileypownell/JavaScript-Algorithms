@@ -1,0 +1,40 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Let's define digit degree of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to one digit number. Given an integer, find its digit degree.</h2>
+
+<script>
+
+// Objective: Let's define digit degree of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to one digit number. Given an integer, find its digit degree.
+
+function digitDegree(num) {
+  // keeps track of how many times we add the numbers together
+  let iterations = 0;
+  let currentNum = num;
+  if ( num <= 9 ) {
+    // no point in going forward since it's already a single digit
+    return iterations;
+  } else {
+    while (true) {
+      // will continue to loop while the currentNum has two digits or more
+      iterations++;
+      currentNum = getDigit(currentNum);
+      if (currentNum < 9) {
+        break;
+      }
+    }
+  }
+  console.log(getDigit(num));
+  console.log(iterations);
+}
+
+function getDigit(num) {
+  const numbers = num.toString().split('').map((element) => parseInt(element));
+  return numbers.reduce((a,b) => a + b);
+}
+
+digitDegree(512);
+
+</script>
+
+</html>

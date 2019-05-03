@@ -1,0 +1,42 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given two cells on the standard chess board, determine whether they have the same color or not. (Two colors)</h2>
+
+<script>
+
+// Objective: Given two cells on the standard chess board, determine whether they have the same color or not. (Two colors)
+
+function isSameColor(square1, square2) {
+  // to be same color:
+  // pattern: if letter difference is even number more or same, then number difference must be two-number-odd more starting at same number
+  // if letter difference is odd number more, starting at one more (odd), then number difference must be even number starting at one more
+  square1 = square1.split('');
+  square2 = square2.split('');
+  console.log(square1, square2);
+  // use ASCII values to find the numeric difference between letter values
+  let differenceBetweenLetters = Math.abs(square1[0].charCodeAt(0)-square2[0].charCodeAt(0));
+  let differenceBetweenNumbers = Math.abs(square1[1]-square2[1]);
+  // If difference between letters is EVEN (or both start with same letter):
+  if (differenceBetweenLetters%2 === 0) {
+    // is number also two more? if so, same color
+    if (differenceBetweenNumbers%2 === 0) {
+      console.log("The cells are the same color");
+    } else {
+      console.log("The cells are NOT the same color");
+    }
+  } // If difference between letters is ODD
+    else {
+    if (differenceBetweenNumbers%2 !== 0) {
+      console.log("The cells are the same color")
+    } else {
+      console.log("The cells are NOT the same color");
+    }
+  }
+}
+
+isSameColor("C5", "E6");
+
+</script>
+
+</html>

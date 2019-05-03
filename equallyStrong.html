@@ -1,0 +1,32 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that determines if two people are equally strong by determining if their weakest arms and strongest arms are exactly equal to each other. For example, if Tony Stark's strongest arm is 10 and weakest arm is 3, and Captain America's strongest arm is 20 and weakest arm is 19, they are not equally strong.</h2>
+
+<script>
+
+// Objective: Write a function that determines if two people are equally strong by determining if their weakest arms and strongest arms are exactly equal to each other. For example, if Tony Stark's strongest arm is 10 and weakest arm is 3, and Captain America's strongest arm is 20 and weakest arm is 19, they are not equally strong.
+
+function strengthCompare(array1, array2) {
+   array1.sort((a, b) => {
+     return a - b;
+   });
+   array2.sort((a, b) => {
+     return a - b;
+   });
+   const array1Weakest = array1[0];
+   const array1Strongest = array1[1];
+   const array2Weakest = array2[0];
+   const array2Strongest = array2[1];;
+   if ( array1Weakest === array2Weakest && array1Strongest === array2Strongest) {
+     console.log("Your powers are equal.");
+   } else {
+     console.log("One of you is not like the other");
+   }
+}
+
+strengthCompare([myLeft = 3, myRight = 4], [hulkLeft = 200, hulkRight = 200]);
+
+</script>
+
+</html>

@@ -1,0 +1,39 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that takes in an array of numbers and finds the pair of adjacent numbers that has the largest product and return that product.</h2>
+
+<script>
+
+// Objective: Write a function that takes in an array of numbers and finds the pair of adjacent numbers that has the largest product and return that product
+
+let array = [2, 5, 9, 26, 4, 29, 23, 15, 10, 7, 29];
+
+function largestProduct(num) {
+  // to account for a negative product, initialize to the product of the first two array items (so if, for example, array[1] was negative 5, we'd be initializing to -10 instead)
+  let largestProduct = array[0] * array[1];
+  let largestProductPair = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] * (array[i +1]) > largestProduct) {
+      // if the product is bigger than the current biggest product, update:
+      largestProduct = array[i] * (array[i + 1]);
+      // if the array already stores the two numbers that make the previously largest product, empty the array and update with the new digits
+      if (largestProductPair !== []) {
+        largestProductPair.length = 0;
+        largestProductPair.push(array[i]);
+        largestProductPair.push(array[i + 1]);
+      } else {
+        // if the array was already empty, just push the new digits
+        largestProductPair.push(array[i]);
+        largestProductPair.push(array[i + 1]);
+      }
+    }
+  }
+  console.log(largestProductPair);
+}
+
+largestProduct(array);
+
+</script>
+
+</html>

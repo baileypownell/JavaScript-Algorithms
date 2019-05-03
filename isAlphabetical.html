@@ -1,0 +1,25 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function checks if a given string is a subsequence of the plaintext alphabet. "cfhiiikll" would pass but "chf" would not. If the string is NOT alphabetical, the console will have a message reflecting that</h2>
+
+<script>
+
+// Objective: Write a function checks if a given string is a subsequence of the plaintext alphabet. "cfhiiikll" would pass but "chf" would not. If the string is NOT alphabetical, the console will have a message reflecting that.
+
+function isAlphabetical(string) {
+  string = string.toLowerCase().split('');
+  let difference;
+  for (let i = 1; i < string.length; i++) {
+    difference = string[i].charCodeAt() - string[i-1].charCodeAt();
+    if (difference < 0) {
+      console.log("not alphabetical");
+    }
+  }
+}
+
+isAlphabetical("aagmmr");
+
+</script>
+
+</html>

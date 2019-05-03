@@ -1,0 +1,23 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given a character, check if it represents an odd digit, an even digit,or not a digit at all.</h2>
+
+<script>
+
+// Objective: Given a character, check if it represents an odd digit, an even digit,or not a digit at all.
+
+function isPalindrome(string) {
+  let comparison = string.toLowerCase().split('').reverse().join('');
+  if (string === comparison) {
+    console.log("It's a palindrome!")
+  } else {
+    console.log("It's not a palindrome... :/")
+  }
+}
+
+isPalindrome("12345678987654321");
+
+</script>
+
+</html>

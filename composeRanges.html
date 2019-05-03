@@ -1,0 +1,42 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given a sorted integer array that does not contain any duplicates, return a summary of teh number ranges it contains.</h2>
+
+<script>
+
+// Objective: Given a sorted integer array that does not contain any duplicates, return a summary of teh number ranges it contains.
+
+function composeRanges(array) {
+  const ranges = [{start: array[0], end: array[0]}];
+    if (array.length < 1) {
+      return [];
+    }
+  // iterate through the input array
+  // if ranges array index value that is the end value PLUS ONE is exactly equal to the current array value, update the end value to equal said array index value because said array index value is greater than the start value of ranges (ranges began and end with the same value, negative 1)
+  // however, if the current array index value is NOT EXACTLY ONE VALUE GREATER (so like two, three, four, etc. values greater) than the end value plus one, add a new object to ranges that begins and ends with said array index value. This is the start of new range.
+
+  for (let i = 1; i < array.length; i++) {
+    if ( ranges[ranges.length-1].end + 1 === array[i]) {
+      ranges[ranges.length -1].end = array[i];
+    } else {
+      ranges.push({start: array[i], end: array[i]});
+    }
+  }
+  // add arrows to show ranges better
+  for (let i = 0; i < ranges.length; i++) {
+    if (ranges[i].start !== ranges[i].end) {
+      ranges[i] = `${ranges[i].start}-->${ranges[i].end}`;
+    } else {
+      ranges[i] = ranges[i].start.toString();
+    }
+  }
+
+  console.log(ranges);
+}
+
+composeRanges([-1, 0, 1, 2, 6, 7, 9]);
+
+</script>
+
+</html>

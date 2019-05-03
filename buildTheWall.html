@@ -1,0 +1,21 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that builds a border of asterisks around a rectangular matrix of characters </h2>
+
+<script>
+
+// Objective: Write a function that builds a border of asterisks around a rectangular matrix of characters
+
+function buildTheWall(array) {
+  let wall = "************";
+  array.unshift(wall);
+  array.push(wall);
+  console.log(array);
+}
+
+buildTheWall(["corgi", "poodle", "hound"]);
+
+</script>
+
+</html>

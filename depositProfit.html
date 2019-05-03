@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// You have deposited a specific amount of dollars into your bank account. Each year your balance increases at the same growth rate. Find out how long it would take for your balance to pass a specific threshold with the assumption that your don't make any additional deposits.
+
+function depositProfit(deposit, rate, threshold) {
+  let yearEndAmount = deposit;
+  let year = 0;
+  // this loop will run while the yearEndAmount is less than the threshold; once the yearEndAmount is greater than the threshold, it stops
+  while (yearEndAmount < threshold) {
+    yearEndAmount += yearEndAmount*(rate/100);
+    year++;
+  }
+  console.log(`It will take ${year} years to reach/pass the threshold.`);
+}
+
+depositProfit(3500, 20, 8000);
+
+
+</script>
+</html>

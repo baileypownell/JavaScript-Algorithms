@@ -1,0 +1,40 @@
+<DOCTYPE! html>
+<html>
+
+<h2>A function that determines if two arrays of numbers of similar, similar meaning you can swap at most one pair of elements and they remain the same. [5, 4, 2] and [4, 2, 5] would be similar.</h2>
+
+<script>
+
+// Objective: Write a function that determines if two arrays of numbers of similar, similar meaning you can swap at most one pair of elements and they remain the same. [5, 4, 2] and [4, 2, 5] would be similar.
+
+function strengthCompare(array1, array2) {
+  // order the arrays by increasing value
+   array1.sort((a, b) => {
+     return a - b;
+   });
+   array2.sort((a, b) => {
+     return a - b;
+   });
+   // iteration
+   if (array1.length === array2.length) {
+     for (let i = 0; i < array1.length; i++) {
+       if (array1[i] !== array2[i]) {
+         console.log("Arrays are not similar because at least one value is unequal");
+         // break since there's no more reason to keep going
+         break;
+       } else if (array1[i] === array2[i] && i === array1.length-1 )  {
+         // second conditional prevents this code from running for each equal element of the arrays
+         console.log("arrays are similar");
+       }
+     }
+   } else {
+     // don't bother iterating if the lengths are the same because they cannot be similar if lenghts are unequal
+     console.log("Arrays are not similar");
+   }
+}
+
+strengthCompare([7, 19, 23], [23, 19, 5]);
+
+</script>
+
+</html>

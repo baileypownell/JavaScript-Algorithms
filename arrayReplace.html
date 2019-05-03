@@ -1,0 +1,41 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given an array of integers, replace all occurrences of elemToReplace with substitutionElem.</h2>
+
+<script>
+
+// Objective: Given an array of integers, replace all occurrences of elemToReplace with substitutionElem.
+
+function replaceArray(array) {
+  let elemToReplace = 5;
+  let substitutionElem = 6;
+  // find index of elemToReplace: Note that findIndex() requires a function
+  function replaceElement(element) {
+    return element === elemToReplace;
+  }
+  // insert the element where the old element was
+  let index = array.findIndex(replaceElement);
+  array.splice(index, 1, substitutionElem);
+  console.log(array);
+}
+
+// another way, using .forEach
+function replaceArray2(array) {
+  let elemToReplace = 5;
+  let substitutionElem = 6;
+  array.forEach((element, i) => {
+    if (element === elemToReplace) {
+      array[i] = substitutionElem;
+    }
+  });
+  console.log(array);
+}
+
+
+replaceArray([8, 5, 9]);
+replaceArray2([8, 5, 9]);
+
+</script>
+
+</html>

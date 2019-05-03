@@ -1,0 +1,23 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given a year anno domini, return the century it is in. The century is given by a number, like 16, and centuries are calculated loosely and not in accordance with the Gregorian calendar. (So 2000 would mark the start of the 21st century).</h2>
+
+<script>
+
+// Objective: Given a year anno domini, return the century it is in. The century is given by a number, like 16.
+
+function giveCentury(year) {
+  year = year.toString().split('');
+  let century = '';
+  century = century.concat(year[0]);
+  century = century.concat(year[1]);
+  century = parseInt(century)+1;
+  console.log(`The century is: ${century}`);
+}
+
+giveCentury(1323);
+
+</script>
+
+</html>

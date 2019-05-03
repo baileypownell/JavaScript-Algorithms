@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function that takes in two positive numbers and adds all of the numbers between them, and includes the numbers themselves.
+
+let numbers = [5, 30];
+
+function sumOfDifferences(array) {
+  let total = 0;
+  // first, put them in order just in case they aren't
+  array.sort((a,b) => {
+    return a-b;
+  });
+  // then find and add the missing numbers to the array
+  for (let i = 0; i < array.length; i++) {
+    let difference = array[i] - array[i-1];
+    if ( difference > 1) {
+      array.push(array[i]-1);
+      i--;
+      // order the array again to make sure the number goes where it belongs, and isn't stuck at the end of the array.
+      array.sort((a,b) => {
+        return a-b;
+      });
+    }
+}
+  // then, iterate through the updated array and add each item to the total variable;
+  array.forEach(function(item) {
+    total += item;
+  });
+  console.log(total);
+}
+
+sumOfDifferences(numbers);
+
+// a less verbose approach:
+
+let numbers2 = [5, 30];
+
+function sumOfDifferences2(array) {
+  let total2 = 0;
+  for (let i = array[0]; i <= array[1]; i++) {
+    total2 += i;
+  }
+  console.log(total2);
+}
+
+sumOfDifferences2(numbers2);
+
+</script>
+</html>

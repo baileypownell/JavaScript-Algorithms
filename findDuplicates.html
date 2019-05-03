@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Function that finds out if an array of number has any duplicates - as soon as a duplicate is found, the code stops running and a notification that duplicates exist is printed to the console.
+
+let numberArray = [4, 2, 9, 1, 3, 9, 5, 5];
+let duplicationStatus = '';
+
+function findDuplicates() {
+  numberArray.sort((a,b) => {
+    return a - b;
+ });
+ for (let i = 0; i < numberArray.length; i++) {
+   if ( numberArray[i] === numberArray[i-1] ) {
+     duplicationStatus += 'Duplicates exist';
+     break;
+   }
+ }
+  console.log(duplicationStatus);
+}
+
+findDuplicates(numberArray);
+
+
+</script>
+</html>

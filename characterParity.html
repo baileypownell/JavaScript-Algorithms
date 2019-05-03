@@ -1,0 +1,27 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given a character, check if it represents an odd digit, an even digit,or not a digit at all.</h2>
+
+<script>
+
+// Objective: Given a character, check if it represents an odd digit, an even digit,or not a digit at all.
+
+function isDigit(num) {
+  num = parseInt(num);
+  if (isNaN(num)) {
+    console.log("not a digit");
+  } else {
+    if (num%2 === 0) {
+      console.log("even");
+    } else {
+      console.log("odd");
+    }
+  }
+}
+
+isDigit("57");
+
+</script>
+
+</html>

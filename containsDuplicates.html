@@ -1,0 +1,28 @@
+<DOCTYPE! html>
+<html>
+
+<h2>Given an array of integers, write a function that determines whether the array contains any duplicates. Your function should return true if any element appears at least twice in the array, and it should return false if every element is distinct.</h2>
+
+<script>
+
+// Objective: Given an array of integers, write a function that determines whether the array contains any duplicates. Your function should return true if any element appears at least twice in the array, and it should return false if every element is distinct.
+
+function containsDuplicates(array) {
+  array = array.sort(function(a, b) {
+    return a -b;
+  });
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === array[i+1]) {
+      console.log(true);
+      return;
+    }
+  }
+  // if the iteration gets this far, it is only because no two array values were equal; therefore, there are no duplicates, and since we're at the end of the array, that means each value is unique
+  console.log(false);
+}
+
+containsDuplicates([0, 5, 8, 4, 3, 9]);
+
+</script>
+
+</html>

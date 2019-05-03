@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Reverse a string
+
+function reverseAString(string) {
+  console.log(Array.from(string).reverse().join('')); // a string
+  console.log(string.split('').reverse().join(''));
+}
+
+reverseAString("Ishmael");
+
+// using a loop
+
+function reverseAString2(string) {
+  let word = '';
+  for (i = string.length-1; i >= 0; i--) { // subtract 1 from initialization
+    word += string[i];
+  }
+  console.log(word);
+}
+
+reverseAString2("Kentucky");
+
+// an ES6 approach with spread operator to convert the string into an array
+
+function reverseES6(string) {
+  console.log([...string].reverse().join(''))
+}
+
+reverseES6("Gonzaga");
+
+</script>
+</html>
