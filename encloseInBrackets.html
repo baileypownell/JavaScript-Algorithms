@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a string, enclose it in brackets
+
+// the ES6 way
+
+function enclose(string) {
+  console.log(`{${string}}`);
+}
+
+enclose('abracadabra');
+
+// the weird way
+
+function enclose2(string) {
+  string = string.padEnd(string.length+1, '}').padStart(string.length+2, '{');
+  console.log(string);
+}
+
+enclose2('abracadabra');
+
+// the hard way
+function enclose3(string) {
+  string = string.split('');
+  string.push('}');
+  string.unshift('{');
+  string = string.join('');
+  console.log(string);
+}
+
+enclose3('abracadabra');
+
+</script>
+</html>

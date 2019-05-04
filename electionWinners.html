@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given an array of the numbers of votes given to each of the candidates so far, and an integer k equal to the number of voters who haven't cast their vote yet, find the number of candidates who still have a chance to win the election.
+
+function possibleWinners(array, votesToCast) {
+  // make array to hold the ones that could possibly win:
+  let possiblities = 0;
+  // find the candidate that's ahead:
+  array = array.sort((a, b) => {return b - a});
+  const leader = array[0];
+  // return 1 if the leader is not equal to its neighbor and there's no remaining votes:
+  if (array[0] !== array[1] && votesToCast===0) {
+    console.log(1);
+    return;
+  }
+  // now for each element of the array, see if the leader subtracted from the current array item is less than votesToCast, because if it is, then votesToCast is enough to put that current array item ahead of the leader, so we will increment the number of possible winners
+  array.forEach((i) => {
+    if (leader - i < votesToCast) {
+      possiblities++;
+    }
+  });
+  console.log(possiblities);
+}
+
+possibleWinners([2, 3, 5, 2], 3);
+
+// another way to do this, by pushing to an array
+
+function possibleWinners2(array, votesToCast) {
+  // make array to hold the ones that could possibly win:
+  let possibleWins = [];
+  // find the candidate that's ahead:
+  array = array.sort((a, b) => {return b - a});
+  const leader = array[0];
+  // see what happens when all votesToCast go to each candidate (question we're answering is: if all the votes went to the candidate, would this make them the new leader? If not, they cannot win.)
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]+votesToCast > leader) {
+      possibleWins.push(array[i]);
+    }
+  }
+  console.log(possibleWins.length);
+}
+
+possibleWinners2([2, 3, 5, 2], 3);
+
+
+</script>
+</html>
