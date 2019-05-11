@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<script>
+
+// check if all digits of a string are even
+
+function areEven(num) {
+  let array = num.toString().split('');
+  for (let i = 0; i < array.length; i++) {
+    if (parseInt(array[i]) % 2 !== 0) {
+
+      // as soon as an odd number is found, give the message and exit the loop
+      console.log('Not all numbers are even.');
+      break;
+    } else if (i === array.length-1) {
+      // if we have gotton to the last element then it must be even, else the first if statement would have run, so now all the numbers are even
+      console.log('All numbers are even.');
+    }
+  }
+}
+
+// ES6 approach:
+
+function areEven2(num) {
+  const digits = num.toString().split('');
+  // returns true if every digit is even, false if not every digit is even
+  console.log(digits.every((digit) => parseInt(digit) % 2 === 0));
+}
+
+areEven(2468228);
+
+areEven2(2468228);
+
+
+</script>
+</html>

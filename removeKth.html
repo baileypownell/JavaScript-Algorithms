@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given an array of integers, remove each k0th element from it.
+
+function removeKth(array, num) {
+  // filter will only keep elements whose index number divided by the numbers where we want to remove elements is not equal to zero, because if it was then it would be the 4th, 8th, 12th, 16th element and so we'd want to get rid of it
+  const output = array.filter((element, index) => { return (index + 1) % num !== 0 });
+  console.log(output);
+}
+
+removeKth([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 4);
+
+</script>
+</html>

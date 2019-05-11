@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Uber is building a Fare Estimator that can tell you how much your ride will cost before you request it. It works by passing approximated ride distance and ride time through this formula: Cost/minute * rideTime + Cost/mile * rideDistance where Cost/minute and Cost/mile depend on the car type. Knowing cost/mile for each car type, as well as ride distance and rideTime, return the fare estimates for all car types. Note: costPerMile and costPerMinute are related; if the costPerMinute is $0.35, then the costPerMile is $1.80.
+
+function fareEstimator(rideTime, rideDistance, costPerMinute, costPerMile) {
+  let price = [];
+
+  for (let i = 0; i < costPerMile.length; i++) {
+    let cost = Number(rideTime*costPerMinute[i] + rideDistance*costPerMile[i]).toFixed(2);
+    price.push(' ' + cost);
+  }
+  console.log('Your possible prices are:' + price  + ' dollars');
+}
+
+fareEstimator(30, 7, [.2, .35, .4, .45], [1.1, 1.8, 2.3, 3.5]);
+
+
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Fermat's factorization method is: if a * b = n (where a <= b), then theres exists soem c and d such that n = c^2 - d^2. Your goal is to return for given n such c and d as an array. Since we want c and d to be uniquely determined, in all test cases n is a semiprime number. For example, for n = 15, the output should be fermactor(n) = [4, 1]. 15 = 4^2 - 1^2.
+
+function fermactor(num) {
+  // make a for loop to iterate through first possible number(s)
+  for (let i = 1; i < num; i++) {
+    // inside the loop, make another to iterate through second possible number(s)
+    for (let j = 1; j < i; j++) {
+      if (Math.pow(i, 2) - Math.pow(j, 2) === num) {
+        console.log(i, j);
+      }
+    }
+  }
+}
+
+fermactor(15); // in this case, 4*4 - 1*1 = 15, as does 8*8 - 7*7, so both will be logged to the console.
+
+
+</script>
+</html>

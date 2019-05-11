@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<script>
+
+// Being a new Uber user, you have $20 off your first ride. You want to make the most out of it and drive in the fanciest car you can afford, without spending any out-of-pocket money. There are 5 options, from the least to the most expensive: UberX, UberXL, UberPlus, UberBlack, and UberSUV.
+
+// You know the length of your ride in miles and how much one mile costs for each car. Find the best car you can afford.
+
+function fancyRide(fares, miles) {
+  let mostLuxuriousRide;
+  const cost = 20; // "free" money we can use since we're a new Uber user
+  // iterate through each ride selection until one of them is greater than cost; at that point, revert to the previous selection, because that will be the most expensive ride we can afford
+  for (let i = 0; i < fares.length; i++) {
+    if (fares[i]*miles > cost) {
+      mostLuxuriousRide = fares[i-1];
+      // stop the loop since we found the most expensive ride we can afford
+      break;
+    }
+  }
+  switch (mostLuxuriousRide) {
+    case .3:
+      console.log("UberX");
+      break;
+    case .5:
+      console.log("UberXL");
+      break;
+    case .7:
+      console.log("UberPlus");
+      break;
+    case 1:
+      console.log("UberBlack");
+      break;
+    case 1.3:
+      console.log("UberSUV");
+      break;
+    default:
+      console.log('Hmmmm, something\'s not working');
+  }
+}
+// There's probably more concise ways to do this, like iterating through an array of the names. This is just one approach, and I felt like using a switch statement just for the heck of it.
+
+fancyRide([.3, .5, .7, 1, 1.3], 27);
+
+</script>
+</html>

@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a rectangular matrix and an integer column, return an array containing the elements of the columnth column of the given matrix (the leftmost column is the 0th one).
+
+
+function extractMatrixCol(array, num) {
+  const elements = [];
+  for (let i = 0; i < array.length; i++) {
+    elements.push(array[i][num]);
+  }
+  console.log(elements);
+}
+
+extractMatrixCol([[0, 2, 4, 5],
+                  [1, 2, 6, 7],
+                  [4, 3, 9, 5],
+                  [2, 6, 1, 9]], 1);
+
+</script>
+</html>
