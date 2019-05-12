@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a stirng with various characters and numbers, find the first digit in the string (from the left)
+
+function findFirstDigit(string) {
+  string = string.split('');
+  const numbers = [];
+  string.forEach((char) => {
+    // get rid of string type
+    char = parseInt(char);
+    // if the character is a number, push it to the array
+    if (char/1 === char) {
+      numbers.push(char);
+    }
+  });
+  // access the first number in the array, which will be the first number encountered in the string
+  return numbers[0];
+}
+
+console.log(findFirstDigit("q2q-qb5.9"));
+
+// BETTER APPROACH
+// this algorithm is better because it stops iterating as soon as a number is found and takes advantage of some built in JS methods for determining if something is a number
+
+function findFirstDigit2(string) {
+  string = string.split('');
+  for (let i = 0; i < string.length; i++) {
+    if (Number.isInteger(parseInt(string[i]))) {
+      console.log(string[i]);
+      break;
+    }
+  }
+}
+
+findFirstDigit2("q2q-qb5.9");
+
+
+</script>
+</html>

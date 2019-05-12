@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// An email address such as "John.Smith@example.com" is made up of a local part ("John.Smith"), an @symbol, and then a domain part. The domain name part of an email adddress amy only consist of letters, digits, hyphens, and dots. The local part, however also allows a lot of different special characters. Given a valid email address, find its domain part.
+
+function findDomain(email) {
+  let start = email.lastIndexOf('@');
+  let domain = email.split('').slice(start+1).join('');
+  return domain;
+}
+
+console.log(findDomain("validemail@nowhere.com"));
+
+</script>
+</html>
