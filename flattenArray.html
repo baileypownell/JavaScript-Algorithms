@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Flatten a nested array, accounting for varying levels of nesting without using .flat()
+
+function flatten(array) {
+  const finalArray = [];
+
+  flattenRecursion(array);
+
+  function flattenRecursion(array) {
+    array.forEach((item) => {
+      if (Array.isArray(item)) {
+        flattenRecursion(item);
+      } else {
+        finalArray.push(item);
+      }
+    });
+  }
+
+  console.log(finalArray);
+}
+
+flatten([[[["a"]]], [["b"]]]);
+
+
+
+</script>
+</html>

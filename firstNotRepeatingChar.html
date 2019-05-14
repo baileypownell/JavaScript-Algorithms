@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a sting, find and return the first instance of a non-repeating character in it. If there is no such character, return '_'.
+
+function firstNonRepeat(string) {
+  // keep track of the frequency with which a character occurs
+  string = string.split('');
+  // create an object to hold each unique letter
+  const frequencies = {};
+  // for every letter in the string, if the letter doesn't exist, give it a count of one; else, increase its count by one
+  for (const letter of string) {
+    if (!frequencies.hasOwnProperty(letter)) {
+      frequencies[letter] = 1;
+    } else {
+      frequencies[letter]++;
+    }
+  }
+console.log(frequencies);
+  // now, return the correct answer
+  // to do this, we need to compare the count values for each object in the frequencies object
+  // to do that, I am going to iterate through the object by first turning it into an array
+
+  const ARRAY = Object.entries(frequencies);
+
+  // a loop we can easily break out of as needed
+  for (let i = 0; i < ARRAY.length; i++) {
+    if (ARRAY[i][1] === 1) {
+      console.log(ARRAY[i][0]);
+      break;
+    } else if (ARRAY[i][1] !== 1 && i === ARRAY.length-1) {
+      console.log('_');
+    }
+  }
+}
+
+firstNonRepeat('abacabad');
+
+</script>
+</html>
