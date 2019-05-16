@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given the starting HTML tag, find the appropriate end tag which your editor should propose.
+
+function htmlEndTag(startTag) {
+  // first, see if there's any attributes, which will be followed by a whitespace; if there are, delete everything after and including the whitespace before moving on
+  let endTag = startTag.split(' ');
+  if (endTag.length > 1) {
+    // delete every attribute
+    for (let i = 0; i < endTag.length; i++) {
+      endTag.pop(endTag[i]);
+    }
+    // since the > part got deleted, attach it again
+    endTag = endTag.concat('>').join('');
+    // find place to insert /
+    endTag = endTag.split('');
+    endTag.splice(1, 0, '/');
+    endTag = endTag.join('');
+    console.log(endTag);
+  } else if (endTag.length === 1) {
+    // find place to insert /
+    endTag = startTag.split('');
+    endTag.splice(1, 0, '/');
+    endTag = endTag.join('');
+    console.log(endTag);
+  }
+}
+
+htmlEndTag('<header type="disabled" aria="hidden">');
+
+</script>
+</html>
