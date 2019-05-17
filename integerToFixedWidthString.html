@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a positive integer number and a certain length, we need to modify the given number to have a specified length. We are allowed tod o that either by cutting our leading digits (if the number needs to be shortened) or adding 0s in front of the original number. For number = 1234 and width = 2, the output would be 34. For 1234 and 4, the output would be 12345, and for 1234 and width = 5, the output would be 01234.
+
+// This definitely isn't the most elegant solution, but it's what I first came up with. 
+
+function fixedWidth(integer, width) {
+  let output;
+  if (width < integer) {
+    let numbers = integer.toString().split('').reverse();
+    let string = '';
+    for (let i = 0; i < width; i++) {
+      string += numbers[i];
+    }
+    output = string;
+  } else if (width === integer) {
+    output = integer;
+  } else {
+    let string='';
+    // now, it is insufficient to compare the differences in numerical value; we must convert to string to get length since we want a zero for every extra 10's place, not every numerical difference
+    let difference = width.toString().length-integer.toString().length;
+    for (let i = 0; i < difference; i++) {
+      string += 0;
+    }
+    output = string + integer.toString().split('').reverse().join('');
+  }
+  console.log(output);
+}
+
+fixedWidth(264988, 3);
+
+</script>
+</html>
