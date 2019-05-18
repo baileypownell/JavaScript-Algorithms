@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// You are given a list of changes that were made to the files in your database, where for each valid i, changes[i][0] is the timestamp of the time change was made, and changes[i][1] is the file id. Knowing the timestamp of the last backup lastBackupTime, your task is to find the files which should be included in the next backup. Return the ids of the files that should be backed up as an array sorted in ascending order.
+
+
+
+function incrementalBackups(lastBackupTime, changes) {
+  let filesToSave = [];
+  // the goal: grab every file that had changes made to it AFTER the lastBackupTime
+  changes.forEach((item) => {
+    if (item[0] > lastBackupTime) {
+      if (!filesToSave.includes(item[1])) {
+        filesToSave.push(item[1]);
+      }
+    }
+  });
+  return filesToSave.sort((a,b) => {
+    return a-b;
+  });
+}
+
+console.log(incrementalBackups(461620205, [[461620203, 1], [461620204, 2], [461620205, 6], [461620206, 5], [461620207, 3], [461620207, 5], [461620208, 1]]));
+
+// same exact thing, but with filter() (this isn't necessarily better, but I wanted to use both higher level functions just for heck of it)
+
+function incrementalBackups2(lastBackupTime, changes) {
+  let filesToSave = [];
+  function updates (item) {
+    if (item[0] > lastBackupTime) {
+      if (!filesToSave.includes(item[1])) {
+        filesToSave.push(item[1]);
+      }
+    }
+  }
+  changes.filter(updates);
+  return filesToSave.sort((a,b) => {
+    return a-b;
+  });;
+}
+
+console.log(incrementalBackups2(461620205, [[461620203, 1], [461620204, 2], [461620205, 6], [461620206, 5], [461620207, 3], [461620207, 5], [461620208, 1]]));
+
+</script>
+</html>
