@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Ticket numbers usually consist of an even number of digits. A ticket number is considered lucky if the sum of the first half of the digits is equal to the sum of the second half. Given a ticket number, determine if it's lucky or not
+
+function isLucky(num) {
+  let input = num.toString().split('');
+  // first check if there are an equal number of numbers; if there aren't automatically return false because there aren't actually two halves to even compare
+  if (input.length%2 === 0) {
+    let half = input.length/2;
+    let firstSum = 0;
+    let secondSum = 0;
+    // iterate over the first half
+    for (let i = 0; i < half; i++) {
+      firstSum+=parseInt(input[i]);
+    }
+    // iterate over the second half
+    for (let i = half; i < input.length; i++) {
+      secondSum+=parseInt(input[i]);
+    }
+    // if there sums are equal, this is a lucky number; if not, it is unlucky
+    return firstSum === secondSum;
+  } else {
+    return false;
+  }
+}
+
+console.log(isLucky(538916));
+
+</script>
+</html>
