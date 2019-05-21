@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Where n is between and including 1 and 9, give the output, given that n always represents one digit of 9. (So 1 = 9, 2 = 99, etc.)
+
+function output(num) {
+  let output = '9';
+  for (let i = 1; i < num; i++) {
+    output += '9';
+  }
+  return parseInt(output);
+}
+
+console.log(output(5));
+
+// an even better approach:
+
+function output2(num) {
+  const output = '9'.repeat(num);
+  return parseInt(output);
+}
+
+console.log(output2(5));
+
+</script>
+</html>

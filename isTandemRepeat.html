@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Determine whether the given string can be obtained by one concatenation of some string to itself.
+
+function isTandem(string) {
+  // if the string's length is uneven, don't bother even comparing
+  if (string.length%2 === 0) {
+    string = string.split('');
+    let halfwayPoint = string.length/2;
+    let testString1 = string.slice(0,halfwayPoint).join('');
+    let testString2 = string.slice(halfwayPoint).join('');
+    return testString1 === testString2;
+  }
+  return false;
+}
+
+console.log(isTandem("nonsensestringnonsensestring"));
+
+</script>
+</html>
