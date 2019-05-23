@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// One night you go for a ride on your motorcycle. At 00:00 you start your enginge, and the the built-in timer automatically begins counting the length of your ride, in minutes. When you decide to head back, you realize there's a chance the bridges on your route home are up, leaving you stranded. Unfortunately, you don't have your watch on you and don't know what time it is. All you know thanks to the bike's timer is that n minutes have passed since 00:00. Using the bike's timer, calculate the current time. Return an answer as the sum of digits that the digital timer in the format hh:mm would show.
+
+function lateRide(minutes) {
+  // convert the minutes to hour time and return the sum of the digits of said time
+  // this algorithm is my first approach; below is a better, refactored version
+  let totalSum;
+  let hour = (minutes/60);
+  if (hour.toString().length > 2) {
+    hour = hour.toString().split('.');
+    let mins = (parseInt(hour[1])*60).toString().split('');
+    let time = hour[0].concat(mins[0]).concat(mins[1]);
+    let sumTime = time.split('').map((x) => {
+      return parseInt(x);
+    });
+    totalSum = sumTime.reduce((acc, curr) => {
+      return acc + curr;
+    }, 0);
+  } else {
+    console.log(hour);
+    totalSum = hour.toString().split('').map((x) => {
+      return parseInt(x);
+    });
+  }
+  return totalSum;
+}
+console.log(lateRide(717));
+
+function lateRide2(minutes) {
+  // convert the minutes to hour time and return the sum of the digits of said time
+  // this algorithm is my first approach; below is a better, refactored version
+  let hour = Math.floor(minutes/60);
+  let mins = minutes%60;
+  let time = hour.toString().concat(mins.toString()).split('').map(x =>     parseInt(x));
+  return time.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
+}
+console.log(lateRide2(717));
+
+</script>
+</html>
