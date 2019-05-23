@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a string, output its longest prefix which contains only digits. For "123aa1", output is "123".
+
+function longestDigitPrefix(string) {
+  let digitPrefix = '';
+  let intake = string.split('').map((x) => { return parseInt(x)});
+  for (let i = 0; i < intake.length; i++) {
+    if (Number.isInteger(intake[i])) {
+      digitPrefix += intake[i];
+    } else {
+      break;
+    }
+  }
+  return digitPrefix;
+}
+console.log(longestDigitPrefix("5521dvr9w"));
+
+
+</script>
+</html>
