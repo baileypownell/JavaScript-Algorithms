@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Write an algorithm to figure out the minimum number of additional statues needed.
+
+function makeConsecutive(statues) {
+  // formula: subtract first number from last number and add one to get total number of digits in the spread of statues, then subtract length (statues we have) from that to get statues we need
+  // this approach is really just about simple math
+  const STATUES = statues.sort((a, b) => a - b);
+  const length = statues.length;
+  const LAST = STATUES[length-1];
+  const FIRST = STATUES[0];
+  const NUMBERS_NEEDED = (LAST-FIRST+1)-length;
+  return NUMBERS_NEEDED;
+}
+console.log(makeConsecutive([6, 1, 2, 9])); // will need: 3, 4, 5, 7, and 8, so 5 more statues
+
+</script>
+</html>
