@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// A hotel's rooms are represented by a multi-dimensional array. Each room is represented by a cell which contains an integer, the price of the room. Free rooms cost 0, but that is because they are haunted. Any room that is free/haunted or is at any point located below a free/haunted room in the same column is not viable. Calculate the total price of all available rooms.
+
+function totalPrice(array) {
+  let totalCost = array[0].reduce((acc, curr) => acc + curr);
+  let more = 0;
+  for (let i = 1; i < array.length; i++) {
+    for (let j = 0; j < array.length; j++) {
+      if (array[i-1][j] !== 0) {
+        more += array[i][j];
+      }
+    }
+  }
+  return totalCost + more;
+}
+console.log(totalPrice([[0, 1, 2, 5], [0, 5, 0, 0], [5, 0, 2, 2]]));
+
+</script>
+</html>
