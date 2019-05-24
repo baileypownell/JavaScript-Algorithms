@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a divisor and a bound, find the LARGEST integer N such that:
+// N is EVENLY divisible by divisor,
+// N is less than or equal to bound,
+// and N is greater than 0
+// It is guaranteed that such a number exists
+
+function maxMultiple(divisor, bound) {
+  let N;
+  for (let i = 1; i <= bound; i++) {
+    if (i%divisor === 0) {
+      N = i;
+    }
+  }
+  return N;
+}
+console.log(maxMultiple(25, 26542));
+
+// A simpler approach:
+
+function maxMultiple2(divisor, bound) {
+  let remainder = bound % divisor;
+  return bound - remainder;
+}
+console.log(maxMultiple2(25, 26542));
+
+</script>
+</html>
