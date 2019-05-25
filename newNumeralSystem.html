@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a one-digit number, find all unordered pairs of one-digit numbers whose values add up to the number. The catch: the number is given to you as a letter (the letter which number it is in the alphabet, so 6 = G) and you must return the one-digit numbers who values add up to it  as numbers as well.
+
+function letterSum(string) {
+  let intake = string.split('');
+  const additions = [];
+  const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  let number = string.charCodeAt(intake[0]);
+  for (let i = 0; i <= (number-65)/2; i++) {
+    let otherNumber = number - i;
+    additions.push(String.fromCharCode(otherNumber) + ' + ' + String.fromCharCode(i+65));
+  }
+  return additions;
+}
+console.log(letterSum('G'));
+
+
+
+</script>
+</html>
