@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a string, find out if its characters can be rearranged to form a palindrome.
+
+function palindromeTest(string) {
+  let characters = string.toLowerCase().split('');
+  const letterObject = {};
+  let oddCount = 0;
+  // formula: as long as there's two, four, six, eight, etc of each letter, then the word can be a palindrome. The exception: the middle letter can only occur on odd number of times, like 1.
+  for (let i = 0; i < characters.length; i++) {
+    if (letterObject.hasOwnProperty(characters[i])) {
+      letterObject[characters[i]]++;
+    }  else {
+      letterObject[characters[i]] = 1;
+    }
+  }
+  for (let prop in letterObject) {
+    if (letterObject[prop] % 2 !== 0) {
+      oddCount++;
+    }
+  }
+  if ( characters.length % 2 !== 0) {
+    return oddCount > 1;
+  } else {
+    return oddCount === 0;
+  }
+}
+
+console.log(palindromeTest('moom'));
+
+</script>
+</html>
