@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Find the missing letter (there's only one) in the passed letter range, which can begin on any letter, and return it. If all letters are present in the range, return undefined.
+
+function findMissing(string) {
+  let missing;
+  const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  let intakeString = string.split('');
+  let firstLetter = intakeString[0];
+  let startPoint = alphabet.indexOf(firstLetter);
+  console.log(firstLetter, startPoint);
+  for (let i = startPoint; i < string.length+startPoint; i++) {
+    if (intakeString[i] !== alphabet[i]) {
+      missing = alphabet[i];
+    }
+  }
+  return missing;
+}
+console.log(findMissing('ghikl'));
+
+
+
+</script>
+</html>
