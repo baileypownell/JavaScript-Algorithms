@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Correct a string to a proper noun ('pARIS' should correct to 'Paris')
+
+function properNoun(noun) {
+  noun = noun.toLowerCase().split('');
+  let first = noun[0].toUpperCase();
+  noun.shift();
+  return first + noun.join('');
+}
+
+console.log(properNoun('iTaLy'));
+
+</script>
+</html>

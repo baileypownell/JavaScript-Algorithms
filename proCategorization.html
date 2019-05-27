@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Thumbtack helps professionals grow their businesses by identifying new customers. Upon registering on Thumbtack, a pro specifies which categories of services they provide. To help match customer requests with qulified pros, thumbtack maintains a list of pros grouped by service categories. Given a list of pros and their category preferences, return the list of pros for each category in a multidimensional array.
+
+function proCategorization(pros, fields) {
+  const services = {};
+  const professionalServices = [];
+  for (let i = 0; i < pros.length; i++) {
+    for (let j = 0; j < fields[i].length; j++) {
+      if (services.hasOwnProperty(fields[i][j])) {
+        services[fields[i][j]].push(pros[i]);
+      } else {
+        services[fields[i][j]] = [pros[i]];
+      }
+    }
+  }
+  for (const prop in services) {
+    professionalServices.push([[prop], [...services[prop]]]);
+  }
+  return professionalServices;
+}
+
+console.log(proCategorization(['Beauregard', 'Kyle', 'Jaclynn'], [['Computer repair', 'Handyman', 'House cleaning'], ['Computer lessons', 'Computer repair', 'Data recovery'], ['Computer lessons', 'House cleaning']]));
+
+</script>
+</html>
