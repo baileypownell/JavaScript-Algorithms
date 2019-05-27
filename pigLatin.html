@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Translate the provided string to pig latin. Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word, and suffixes an 'ay'. If a word begins with a vowel you just add 'way' to the end. Input strings are guaranteed to be English words in all lowercase.
+
+function pigLatin(word) {
+  // handle words that begins with a vowel
+  word = word.split('');
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+  if (vowels.includes(word[0])) {
+    word.push('way');
+  } else {
+    let consonants = [];
+    for (let i = 0; i < word.length; i++) {
+      if (!vowels.includes(word[i])) {
+        consonants.push(word[i]);
+      } else if (vowels.includes(word[i])) {
+        break;
+      }
+    }
+    // now delete the first consonants(s) from the word
+    for (let i = 0; i < consonants.length; i++) {
+      let elementToDelete = word.indexOf(consonants[i]);
+      word.splice(elementToDelete, 1);
+    }
+    // add said consonants to the end of the word
+    word.push(consonants.join(''));
+    // lastly, add 'ay' to end of the word
+    word.push('ay');
+    }
+  return word.join('');
+}
+
+console.log(pigLatin('greenday'));
+
+</script>
+</html>
