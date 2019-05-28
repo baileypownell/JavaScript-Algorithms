@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Define an alphabet reflection as follows: a turn into z, b turns into y, c turns into x, n turns into m, m turns into n, etc. A string reflection is the result of applying the alphabet reflection to each of its characters. Reflect the given string.
+
+function reflectString(word) {
+  // since the English alphabet is even, we can split it in half - we'll have two objects and each key number will have the reflection of the exact same key number of the other
+  let alphabet1 = 'abcdefghijklm';
+  let alphabet2 = 'nopqrstuvwxyz';
+  alphabet1 = alphabet1.split('');
+  alphabet2 = alphabet2.split('');
+  const alphabet1Object = Object.assign({}, alphabet1);
+  const alphabet2Object = Object.assign({}, alphabet2);
+
+  // now we iterate over the word and push each reflection to a new array which we will join and return
+  let intake = word.toLowerCase().split('');
+  let reflection = [];
+  for (let i = 0; i < intake.length; i++) {
+    let index = alphabet1.indexOf(intake[i]);
+    if (alphabet1.includes(intake[i])) {
+      reflection.push(alphabet2[index]);
+    } else {
+      reflection.push(alphabet1[index]);
+    }
+  }
+  return reflection.join('');
+}
+
+console.log(reflectString('delight'));
+
+</script>
+</html>

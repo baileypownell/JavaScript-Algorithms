@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// You are provided with an initial array, followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+
+function seekAndDestroy(initialArray, array) {
+  for (let i = 0; i < array.length; i++) {
+    for (let j = 0; j < initialArray.length; j++) {
+      if (initialArray[j] === array[i]) {
+        initialArray.splice(initialArray.indexOf(array[i]), 1);
+      }
+    }
+  }
+  return initialArray;
+}
+
+console.log(seekAndDestroy([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 4], [4, 9, 7]));
+
+// with filer()
+// keeps all elements that are NOT included in the second array
+function seekAndDestroy2(initialArray, array) {
+  return initialArray.filter((element) => !array.includes(element));
+}
+
+console.log(seekAndDestroy2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 4], [4, 9, 7]));
+
+
+</script>
+</html>

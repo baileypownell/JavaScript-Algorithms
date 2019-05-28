@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// A business uses customer ratings of its employees to determine whether or not employees need to be manually reviewed. An employee needs to be manually reviewed when their average rating is below a given threshold. Given a list of ratings for some employees, determine how many should be manually reviewed.
+
+function review(threshold, ratings) {
+  let toReview = 0;
+  // get average ratings
+  ratings.forEach((personRatings) => {
+    let average = 0;
+    for (let i = 0; i < personRatings.length; i++) {
+      average += personRatings[i];
+    }
+    average = average/personRatings.length;
+    if (average < threshold) {
+      toReview++
+    }
+  });
+  return toReview;
+}
+
+console.log(review(3.5, [[3, 4], [3, 3, 3, 4], [5], [1, 1, 2]]));
+
+</script>
+</html>
