@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order wihout moving the trees. In this case, a tree is represented by -1.
+
+function sort(people) {
+  const newArray = people.filter((x) => {
+    if (x !== -1) {
+      return x;
+    }
+  }).sort((a, b) => a -b);
+  let index = 0;
+  for (let i = 0; i < people.length; i++) {
+    if (people[i] !== -1) {
+      people[i] = newArray[index];
+      index++;
+    }
+  }
+
+  return people;
+}
+
+console.log(sort([-1, 150, 190, 170, -1, -1, 160, 180]));
+
+
+
+</script>
+</html>
