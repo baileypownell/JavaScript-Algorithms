@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than and equal to num. The first two numbers in the Fibonacci sequence are 1 and 1. Every additional number in the sequence is the sum of the two prior numbers. The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5, and 8.
+
+function sumOddFib(num) {
+  let oddFibonnaci = [1];
+  // test for if Fibonnaci
+  for (let i = 1; i <= num; i++) {
+    if (i === 1) {
+      oddFibonnaci.push(i);
+    }
+    let indexOfLastNum = oddFibonnaci[oddFibonnaci.length-1];
+    let indexOfSecondToLastNum = oddFibonnaci[oddFibonnaci.length-2];
+    if (i === indexOfLastNum+indexOfSecondToLastNum) {
+      oddFibonnaci.push(i);
+    }
+  }
+  // return the sum of all ODD Fibonacci numbers
+  return oddFibonnaci.filter((x) => {
+    return x%2 !== 0;
+  }).reduce((a, b) => {
+    return a + b;
+  });
+}
+
+console.log(sumOddFib([35]));
+
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Consider a sequence of number a0, a1, etc. inwhich an element is equal to the sum of squared digits of the previous element. The sequence ends once an element that has already been in the sequence appears again. Given the first element a0, find the length of the sequence. For example, a0 = 16, the output should be 9 because it takes 9 iterations to get to 16 again. The first iteration for 16 would be 1^2 = 6^2 = 37.
+
+
+// probably one of the hardest algorithms I've done so far (and also the first time I've needed to use a recursion; I probably could have used a while (true) {} setup, but some say it's sort of a bad practice)
+
+function iterationCount(num) {
+  // intialize as one because this is technically the first iteration
+  let iterationCount = 1;
+  // this array will be updated for each number we iterate over
+  const arrayOfNumsIterated = [];
+  // function to do heavy work
+  function squaring(NUMBER) {
+    // check to see if this number has been iterated over
+    if (!arrayOfNumsIterated.includes(NUMBER)) {
+      // if it hasn't...
+      arrayOfNumsIterated.push(NUMBER);
+      num = NUMBER.toString().split('');
+      // increment now since we only increment once per number, not once per digit of each number
+      iterationCount++;
+      // this array will hold the digits necessary for the next iteration, if necessary
+      let nextNum = [];
+      for (let i = 0; i < num.length; i++) {
+        let squared = parseInt(num[i])*parseInt(num[i]);
+        nextNum.push(squared);
+      }
+      nextNum = nextNum.reduce((a, b) => {
+        return a + b;
+      });
+      squaring(nextNum);
+    } else {
+      return iterationCount;
+    }
+  }
+  squaring(num);
+  return iterationCount;
+}
+
+console.log(iterationCount(16));
+
+</script>
+</html>

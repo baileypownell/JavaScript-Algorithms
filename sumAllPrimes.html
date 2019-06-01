@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Sum all the prime numbers up to and including the provided number. The provided number may not be a prime.
+
+function primeSum(num) {
+  let answers = 0;
+  for (let i = 2; i <= num; i++) {
+    for (let j = 2; j <=i; j++) {
+      console.log(i, j);
+      // this if statement is only true for prime numbers because if the number is not prime, like 6, it will be divisble by some other number, like 2, and have a remainder, so the second if statement will run and break the j loop
+      if (i === j) {
+        console.log(i, j);
+        answers += i;
+      }
+      // this if statement runs when the number is prime AND when the number is not, so it has to go after the first if statement, else answers is never updated
+      if (i%j === 0) {
+        break;
+      }
+    }
+  }
+  return answers;
+}
+
+console.log(primeSum([10]));
+
+
+
+</script>
+</html>
