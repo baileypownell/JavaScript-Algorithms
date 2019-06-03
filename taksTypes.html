@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// For each task, you only know the deadlines of each ith of them. A deadline is the last day by which the task should be finished. Today's date is day. If a task is due today or it's already overdue, it is labedled as Today; if the task is due within a week but not today, it is labeled as upcoming; all other tasks are labeled as later.
+
+// Given an array of deadlines and today's date day, your goal is to find the number of tasks with each label type and return all as an array with the format [Today, Upcoming, Later] where Today, Upcoming and Later are the number of tasks that correspond to that label.
+
+// today = Today and those tasks before today
+// upcoming equals today+2 all the way up to and including today+6
+// later = today+7 and beyond
+
+function taskTypes(deadlines, today) {
+  let upcoming = today+6;
+  let todaysTasks = 0;
+  let upcomingTasks = 0;
+  let laterTasks = 0;
+  deadlines.forEach((task) => {
+    if (task <= today) {
+      todaysTasks++;
+    } else if (task > today && task <= upcoming) {
+      upcomingTasks++;
+    } else {
+      laterTasks++;
+    }
+  });
+  return [todaysTasks, upcomingTasks, laterTasks];
+}
+
+
+
+console.log(taskTypes([1, 2, 2, 2, 3, 5, 5, 10, 12, 13, 15, 15], 4));
+
+
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// N candles are placed in a row, some of them are initially lit. For each candle from the 1st to the last, the following algorithm is applied: if the observed candle (i) is lit, then states of this candle and all candles before it are changed to the opposite. Which candles will remain lit after applying the algorithm to all candles in the order they are placed in the line? (1 = lit, 0 = unlit)
+
+function lightStates(candles) {
+  // count will equal the index value of a given candle, so initialize it to -1 instead of 0
+  let count = -1;
+  for (let i = 0; i < candles.length; i++) {
+    if (candles[i] === 1 || candles[i] === 0) {
+      count++;
+    }
+    if (candles[i] === 1) {
+      for (let j = count; j >= 0; j--) {
+        if (candles[j] === 1) {
+          candles[j] = 0;
+        } else {
+          candles[j] = 1;
+        }
+      }
+    }
+  }
+  return candles;
+}
+
+console.log(lightStates([1, 1, 1, 0, 1, 0, 0]));
+
+
+
+</script>
+</html>
