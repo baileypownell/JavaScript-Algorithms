@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script>
+
+// Let's call product(x) the product of x's digits. Given an array of integers a, calculate product(x) for each x in a, and return the number of distinct results you get.
+
+function distinctResults(numbers) {
+  let distinctResults = [];
+  numbers.forEach((num) => {
+    // case for single digits
+    if (num.toString().length === 1) {
+      if (!distinctResults.includes(num)) {
+        distinctResults.push(num);
+      }
+    } else {
+      // case for multiple digit numbers
+      let product=1; // initialize with 1 since anything times 0=0 and 1 won't affect the ultimate value
+      num = num.toString().split('');
+      for (let i = 0; i < num.length; i++) {
+        product*=parseInt(num[i]);
+      }
+      if (!distinctResults.includes(product)) {
+        distinctResults.push(product);
+      }
+    }
+  });
+  return distinctResults.length;
+}
+
+console.log(distinctResults([2, 8, 121, 42, 222, 23, 7]));
+
+</script>
+</html>
